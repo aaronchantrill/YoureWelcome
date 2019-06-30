@@ -1,0 +1,5 @@
+[Plugin]
+Name = You're Welcome
+Version = 0.0.1
+License = MIT
+Description = Answers "Thank you" with "You're welcome"
