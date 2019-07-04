@@ -4,7 +4,16 @@ from naomi import plugin
 class Plugin(plugin.SpeechHandlerPlugin):
 
     def is_valid(self, text):
-        return self.get_phrases()
+        """
+        Returns True to trigger handle.
+
+        Arguments:
+        text -- user-input, typically transcribed speech
+        """
+        return any(
+            (phrase.upper() in text.upper())
+            for phrase in self.get_phrases()
+        )
 
     def get_phrases(self):
         return [
@@ -13,4 +22,4 @@ class Plugin(plugin.SpeechHandlerPlugin):
         ]
 
     def handle(self, text, mic):
-        self.mic.say("You are welcome")
+        mic.say("You are welcome")
