@@ -2,6 +2,17 @@
 from naomi import plugin
 
 class Plugin(plugin.SpeechHandlerPlugin):
+    def intents(self):
+        _ = self.gettext
+        return {
+            'ThankYouIntent': {
+                'templates': [
+                    _("THANK YOU"),
+                    _("THANKS")
+                ],
+                'action': self.handle
+            }
+        }
 
     def is_valid(self, text):
         """
@@ -21,5 +32,5 @@ class Plugin(plugin.SpeechHandlerPlugin):
             'THANKS'
         ]
 
-    def handle(self, text, mic):
+    def handle(self, intent, mic):
         mic.say("You are welcome")
