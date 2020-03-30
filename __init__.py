@@ -6,10 +6,24 @@ class Plugin(plugin.SpeechHandlerPlugin):
         _ = self.gettext
         return {
             'ThankYouIntent': {
-                'templates': [
-                    _("THANK YOU"),
-                    _("THANKS")
-                ],
+                'locale': {
+                    'en-US': {
+                        'templates': [
+                            "THANK YOU",
+                            "THANKS"
+                        ]
+                    },
+                    'fr-FR': {
+                        'templates': [
+                            "MERCI"
+                        ]
+                    },
+                    'de-DE': {
+                        'templates': [
+                            "DANKE"
+                        ]
+                    }
+                },
                 'action': self.handle
             }
         }
